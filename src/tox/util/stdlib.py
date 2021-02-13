@@ -49,7 +49,7 @@ def suppress_output():
         class redirect_stderr(_RedirectStream):
             _stream = "stderr"
 
-    with TemporaryFile("wt") as file:
+    with TemporaryFile("wt", encoding="utf-8") as file:
         with redirect_stdout(file):
             with redirect_stderr(file):
                 yield
